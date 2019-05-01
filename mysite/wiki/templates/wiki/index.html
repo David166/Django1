@@ -9,10 +9,10 @@
 {% if pages %}
     <ul class="list-group">
     {% for page in pages %}
-    <li class="list-group-item"><a href="{% url 'wiki:detail' page.id %}">{{ page.title }}</a></li>
+    <li class="list-group-item"><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a></li>
     {% endfor %}
     </ul>
-    <hr />
+    <hr /> 
     <a><button class="btn btn-primary">Add a new Page</button></a>   
     {% else %}
     <p>No pages are available.</p>
