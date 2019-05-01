@@ -1,0 +1,21 @@
+{% extends "wiki/base.html" %}
+
+{% block content %}
+    {% block contentTitle %}
+        <h2 class="text-primary">Wiki Index</h2>
+    {% endblock %}
+
+<div class="container">
+{% if pages %}
+    <ul class="list-group">
+    {% for page in pages %}
+    <li class="list-group-item"><a href="{% url 'wiki:detail' page.id %}">{{ page.title }}</a></li>
+    {% endfor %}
+    </ul>
+    <hr />
+    <a><button class="btn btn-primary">Add a new Page</button></a>   
+    {% else %}
+    <p>No pages are available.</p>
+    {% endif %}
+</div>
+{% endblock content %}
