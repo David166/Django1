@@ -6,8 +6,9 @@
     {% endblock %}
     <hr />
     {{page.content}}
+    {{page.content|linebreaks }}
     <hr />
     <div>
     <a href="{% url 'wiki:index' %}"><button class="btn btn-primary">Index</button></a>
     </div>
-{% endblock %}
+{% endblock content %}
