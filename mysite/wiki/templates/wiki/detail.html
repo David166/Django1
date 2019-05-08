@@ -1,14 +1,14 @@
-{% extends "wiki/base.html" %}
-
+{% extends 'wiki/base.html' %}
+{% load wiki_tags %}
 {% block content %}
     {% block contentTitle %}
         <h2 class="text-primary">{{page.title}}</h2>
     {% endblock %}
     <hr />
-    {{page.content|safe }}
+    {{page.content|markup|safe}}
     <hr />
     <div>
-    <a href="{% url 'wiki:index' %}"><button class="btn btn-primary">Index</button></a>
-    <a href="{% url 'wiki:edit_page' page.title %}"><button class="btn btn-info">Edit</button></a>
+        <a href="{% url 'wiki:index' %}"><button class="btn btn-primary">Index</button></a>
+        <a href="{% url 'wiki:edit_page' page.title %}"><button class="btn btn-info">Edit</button></a>
     </div>
 {% endblock content %}

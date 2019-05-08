@@ -29,13 +29,11 @@ def edit_page(request, pk):
 
 def save_page(request, pk):
     content = request.POST["content"]
+    try:
+        page = Page.objects.get(pk=pk)
+        page.content = content
+    except Page.DoesNotExist:
+        page = Page(title=pk, content=content)
     if 'Save' in request.POST:
-        try:
-            page = Page.objects.get(pk=pk)
-            page.content = content
-        except Page.DoesNotExist:
-            page = Page(title=pk, content=content)
         page.save()
-        return redirect('wiki:detail', pk=pk)
-    if 'Cancel' in request.POST:
-        return redirect('wiki:detail', pk=pk)
+    return redirect(page)

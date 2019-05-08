@@ -3,18 +3,15 @@
 {% block pageheader %}Editing {{ page_name }}{% endblock %}
 {% block content %}
 
-    <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
-    <script>tinymce.init({ selector:'#id_content', plugins: 'autolink' });</script>
+<!-- <script src="{% static 'tinymce/tinymce.min.js' %}"></script> -->    
+<!-- <script>tinymce.init({ selector:'#id_content', plugins: 'autolink' });</script> -->
 
     {% block contentTitle %}Edit {{page_name}}{% endblock %}
     <header><h3>{{page_name}}</h3></header>
-
     <form method="post" action="{% url 'wiki:save_page' page_name %}">
     {% csrf_token %}
-<textarea id="id_content" name="content" rows="10" cols="40">
-{{content}}
-</textarea>
+<textarea id="id_content" name="content" rows="10" cols="40">{{content}}</textarea>
         <input class="btn btn-danger" name="Save" type="submit" value="Save">
-        <input class="btn btn-dark" name="Cancel" type="submit" value="Cancel">
+        <input class="btn btn-dark\" name="Cancel" type="submit" value="Cancel">
     </form>
 {% endblock %} 
