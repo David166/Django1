@@ -5,7 +5,7 @@
         <h2 class="text-primary">{{page.title}}</h2>
     {% endblock %}
     <hr />
-    {{page.content|markup|safe}}
+    {{page.content|markup|wikify|safe}}
     <hr />
     <div>
         <a href="{% url 'wiki:index' %}"><button class="btn btn-primary">Index</button></a>
