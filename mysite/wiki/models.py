@@ -9,4 +9,4 @@ class Page(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('wiki:detail', args=[self.title])    
+        return reverse('wiki:detail', args=[self.title])

@@ -11,7 +11,7 @@
     <form method="post" action="{% url 'wiki:save_page' page_name %}">
     {% csrf_token %}
 <textarea id="id_content" name="content" rows="10" cols="40">{{content}}</textarea>
-        <input class="btn btn-danger" name="Save" type="submit" value="Save">
-        <input class="btn btn-dark\" name="Cancel" type="submit" value="Cancel">
+        <input class="btn btn-success" name="Save" type="submit" value="Save">
+        <input class="btn btn-danger" name="Cancel" type="submit" value="Cancel">
     </form>
 {% endblock %} 

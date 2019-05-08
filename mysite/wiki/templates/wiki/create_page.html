@@ -2,5 +2,6 @@
 {% block content %}
 {% block contentTitle %}{{page_name}}{% endblock %}
     <p>There is no content for this new page.</p>
-    <a class="btn btn-primary" href="{% url 'wiki:edit_page' page_name %}">Create?</a>
+    <a class="btn btn-warning" href="{% url 'wiki:edit_page' page_name %}">Create?</a>
+    <a class="btn btn-primary" href="{%url 'wiki:index' %}">Index</a>
 {% endblock %} 
