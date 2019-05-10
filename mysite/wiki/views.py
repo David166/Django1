@@ -1,6 +1,7 @@
 from django.views import generic
 from .models import Page
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 class IndexView(generic.ListView):
     template_name = 'wiki/index.html'
     context_object_name = 'pages'
@@ -19,6 +20,7 @@ def view_page(request, pk):
     except Page.DoesNotExist:
         return render(request, 'wiki/create_page.html', {'page_name': pk})
 
+@login_required(login_url='wiki:login')
 def edit_page(request, pk):
     try:
         page= Page.objects.get(pk=pk)

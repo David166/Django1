@@ -1,21 +1,26 @@
-{% extends 'wiki/base.html' %}
-{% load wiki_tags %}
-{% block content %}
-    {% block contentTitle %}
-        <h2 class="text-primary">Wiki Index</h2>
-    {% endblock %}
+{% extends "wiki/base.html" %}
+{% load static %}
 
+{% block content %}
+    
+{% block title %}
+<h1 class="container">Wiki</h1>
+{% endblock %}
 <div class="container">
+    <button class="btn btn-primary">Create new page</button> <img src={% static 'wiki/images/googledoodle.png' %}>
+{% if user.is_authenticated%}
+    <a class="btn btn-danger" href="{% url 'wiki:logout'%}">Logout</a>
+{% else %}
+    <a class="btn btn-primary" href="{% url 'wiki:login' %}">Login</a>
+{% endif %}
 {% if pages %}
     <ul class="list-group">
     {% for page in pages %}
-    <li class="list-group-item"><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a></li>
+    <li class="list-group-item list-group-item-action"><a href="{% url 'wiki:detail' page.title %}">{{ page.title }}</a></li>
     {% endfor %}
     </ul>
-    <hr /> 
-    <a><button class="btn btn-primary">Add a new Page</button></a>   
-    {% else %}
-    <p>No pages are available.</p>
-    {% endif %}
+{% else %}
+<p>No pages are available at this time.</p>
+{% endif %}
 </div>
 {% endblock content %}
