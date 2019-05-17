@@ -8,24 +8,41 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
 </head>
-<h1 class="container" style="display:inline">Vikipidia</h1>
-<div class="spinner-grow text-warning" role="status" style="animation-delay: 0s;">
-</div>
-<div class="spinner-grow text-danger" role="status" style="animation-delay: 3s;">
-</div>
-<div class="spinner-grow text-danger" role="status" style="animation-delay: 6s;">
-</div>
-<div class="spinner-grow text-danger" role="status" style="animation-delay: 9s;">
-</div>
-<div class="spinner-grow text-danger" role="status" style="animation-delay: 12s;">
-</div>
-<div class="spinner-grow text-danger" role="status" style="animation-delay: 15s;">
-</div>
-<div class="spinner-grow text-danger" role="status" style="animation-delay: 18s;">
-</div>
-<div class="spinner-grow text-danger" role="status" style="animation-delay: 21s;">
-</div>
+<nav class="nav">
+    {% if user.is_authenticated%}
+    <a class="btn btn-danger btn-lg" href="{% url 'wiki:logout'%}">Logout</a>
+    {% else %}
+    <a class="btn btn-primary btn-lg" href="{% url 'wiki:login' %}">Login</a>
+    {% endif %}
+</nav>
 
+<div class="container">
+    <h1 style="display:inline">Vikipidia</h1>
+    <div class="spinner-grow text-primary" role="status" style="animation-delay: 0s;">
+    </div>
+    <div class="spinner-grow text-warning" role="status" style="animation-delay: 3s;">
+    </div>
+    <div class="spinner-grow text-danger" role="status" style="animation-delay: 6s;">
+    </div>
+    <div class="spinner-grow text-primary" role="status" style="animation-delay: 9s;">
+    </div>
+    <div class="spinner-grow text-warning" role="status" style="animation-delay: 12s;">
+    </div>
+    <div class="spinner-grow text-danger" role="status" style="animation-delay: 15s;">
+    </div>
+    <div class="spinner-grow text-primary" role="status" style="animation-delay: 18s;">
+    </div>
+    <div class="spinner-grow text-warning" role="status" style="animation-delay: 21s;">
+    </div>
+    <div class="spinner-grow text-danger" role="status" style="animation-delay: 21s;">
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="nav-link" href="{% url 'wiki:index' %}">Homepage</a>
+        <a class="nav-link disabled" href="#">Create a New Page. Temporarily disabled as it is still a WIP.</a>
+        <a class="nav-link" href="{% url 'wiki:upload_page' %}">Upload a File</a>
+    </nav>
+</div>
+<hr />
 
 <body>
     {% block content %}NO CONTENT PROVIDED{% endblock content %}

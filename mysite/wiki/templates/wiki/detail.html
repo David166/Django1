@@ -1,8 +1,9 @@
 {% extends 'wiki/base.html' %}
 {% load wiki_tags %}
 {% block content %}
+<div class="container">
     {% block contentTitle %}
-        <h2 class="text-primary">{{page.title}}</h2>
+    <h2 class="text-primary">{{page.title}}</h2>
     {% endblock %}
     <hr />
     {{page.content|markup|wikify|safe}}
@@ -11,4 +12,5 @@
         <a href="{% url 'wiki:index' %}"><button class="btn btn-primary">Index</button></a>
         <a href="{% url 'wiki:edit_page' page.title %}"><button class="btn btn-info">Edit</button></a>
     </div>
+</div>
 {% endblock content %}
