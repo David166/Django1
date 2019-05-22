@@ -17,7 +17,7 @@
     please login with an account that has access.</p>
 {% else %}
 <center>
-    <p>You must login to edit this page.</p>
+    <p>You must login to see this page.</p>
 </center>
 {% endif %} {% endif %}
 {% if form.errors %}
@@ -26,7 +26,7 @@
 </center>
 {% endif %}
 <div class="container">
-    This is the Login page. If you wish to edit pages, you must login. To go back, click the Homepage button at the top.
+    This is the Login page. If you wish to edit pages or upload files, you must login. To go back, click the Homepage button at the top.
     <form method="post" action="{% url 'wiki:login' %}">
         {% csrf_token %}
         <table class="table display-6">

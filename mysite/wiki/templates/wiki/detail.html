@@ -12,5 +12,6 @@
         <a href="{% url 'wiki:index' %}"><button class="btn btn-primary">Index</button></a>
         <a href="{% url 'wiki:edit_page' page.title %}"><button class="btn btn-info">Edit</button></a>
     </div>
+    This page has been visited {{ page.counter }} times.    
 </div>
 {% endblock content %}

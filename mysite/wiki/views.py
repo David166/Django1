@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import UploadFileForm
 import logging
+from django.db.models import F
 
 
 class IndexView(generic.ListView):
@@ -17,9 +18,13 @@ class DetailView(generic.DetailView):
     model = Page
     template_name = 'wiki/detail.html'
 
+
 def view_page(request, pk):
     try:
         page = Page.objects.get(pk=pk)
+        page.counter = F('counter') + 1
+        page.save(update_fields=['counter'])
+        page.refresh_from_db()
         return render(request, 'wiki/detail.html', {'page': page})
     except Page.DoesNotExist:
         return render(request, 'wiki/create_page.html', {'page_name': pk})
@@ -27,7 +32,7 @@ def view_page(request, pk):
 @login_required(login_url='wiki:login')
 def edit_page(request, pk):
     try:
-        page= Page.objects.get(pk=pk)
+        page = Page.objects.get(pk=pk)
         content = page.content
     except Page.DoesNotExist:
         content=''
@@ -44,6 +49,7 @@ def save_page(request, pk):
         page.save()
     return redirect(page)
 
+@login_required(login_url='wiki:login')
 def upload_file(request):
     context = {}
     if request.method == 'POST':
