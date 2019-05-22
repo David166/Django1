@@ -9,9 +9,6 @@
         background-color: rgb(206, 225, 245);
     }
 </style> -->
-{% if form.errors %}
-<center><p>Your username and password didn't match. Please try again.</p></center>
-{% endif %}
 
 
 {% if next %}
@@ -19,8 +16,15 @@
 <p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
 {% else %}
-<p>Please login to see this page.</p>
+<center>
+    <p>You must login to edit this page.</p>
+</center>
 {% endif %} {% endif %}
+{% if form.errors %}
+<center>
+    <p>Your username and password didn't match. Please try again.</p>
+</center>
+{% endif %}
 <div class="container">
     This is the Login page. If you wish to edit pages, you must login. To go back, click the Homepage button at the top.
     <form method="post" action="{% url 'wiki:login' %}">
