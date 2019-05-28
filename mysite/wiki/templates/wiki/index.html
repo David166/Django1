@@ -6,7 +6,7 @@
 {% block title %}
 {% endblock %}
 <div class="container">
-    <img src="{% static 'wiki/images/googledoodle.png' %}">
+    <!-- <img src="{% static 'wiki/images/googledoodle.png' %}"> -->
     <h2>Welcome to Vikipidia!</h2> <h4>Right now it is only but a WIP wiki that can only be run locally.</h4>
     {% if user.is_authenticated%}
     Welcome {{ request.user.username }}! You are browsing from {{ request.META.HTTP_USER_AGENT }}, from {{ request.META.REMOTE_ADDR }}.

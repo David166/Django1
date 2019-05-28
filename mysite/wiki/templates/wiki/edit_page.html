@@ -7,8 +7,8 @@
  <!-- <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
  <script>tinymce.init({ selector:'#id_content', plugins: 'autolink' });</script> -->
 
-{% block contentTitle %}You are now editing <h3>{{page_name}}</h3>{% endblock %}
-<p>Use <strong>Markdown</strong> for styling.</p>
+{% block contentTitle %}You are now editing the wiki page known as: <h3>{{page_name}}</h3>{% endblock %}
+<p><strong>Markdown</strong> is compatible with this text editor and it is heavily recommended.</p>
 <form method="post" action="{% url 'wiki:save_page' page_name %}">
     {% csrf_token %}
     <textarea id="id_content" name="content" rows="10" cols="40">{{content}}</textarea>
