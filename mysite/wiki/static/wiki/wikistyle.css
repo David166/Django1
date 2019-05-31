@@ -39,13 +39,15 @@
 /* Buttons */
 
 #loginbase {
-    background-color: rgb(40, 160, 190);
+    background-color: rgb(219, 57, 57);
     color: white;
+    padding: 10px 24px 10px 10px;
 }
 
 #logoutbase {
-    background-color: rgb(219, 57, 57);
+    background-color: rgb(69, 57, 57);
     color: white;
+    padding: 10px 24px 10px 10px;
 }
 
 #loginedit {
