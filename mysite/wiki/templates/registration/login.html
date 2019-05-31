@@ -4,29 +4,20 @@
 <title>
     Login Page
 </title>
-<!--<style>
-   body {
-        background-color: rgb(206, 225, 245);
-    }
-</style> -->
-
 
 {% if next %}
 {% if user.is_authenticated %}
-<p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
+<h4 class="centre">Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</h4>
 {% else %}
-<center>
-    <p>You must login to see this page.</p>
-</center>
+<h4 class="centre">You must login to see this page.</h4>
 {% endif %} {% endif %}
 {% if form.errors %}
-<center>
-    <p>Your username and password didn't match. Please try again.</p>
-</center>
+<h5 class="centre">Your username and password didn't match. Please try again.</h5>
 {% endif %}
 <div class="container">
-    This is the Login page. If you wish to edit pages or upload files, you must login. To go back, click the Homepage button at the top.
+    <h6 class="centre">This is the Login page. If you wish to edit pages or upload files, you must login. To go back,
+        click the Homepage button at the top.</h6>
     <form method="post" action="{% url 'wiki:login' %}">
         {% csrf_token %}
         <table class="table display-6">
@@ -39,7 +30,7 @@
                 <td>{{ form.password }}</td>
             </tr>
         </table>
-        <input class="btn btn-primary btn-lg" type="submit" value="Login">
+        <input class="btn btn-lg" id="loginedit" type="submit" value="Login">
         <input type="hidden" name="next" value="{{ next }}">
     </form>
     <hr />

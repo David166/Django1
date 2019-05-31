@@ -9,11 +9,13 @@
     <!-- <img src="{% static 'wiki/images/googledoodle.png' %}"> -->
     <h2>Welcome to Vikipidia!</h2> <h4>Right now it is only but a WIP wiki that can only be run locally.</h4>
     {% if user.is_authenticated%}
-    Welcome {{ request.user.username }}! You are browsing from {{ request.META.HTTP_USER_AGENT }}, from {{ request.META.REMOTE_ADDR }}.
+    <h6>Welcome {{ request.user.username }}! You are browsing from {{ request.META.HTTP_USER_AGENT }}, from {{ request.META.REMOTE_ADDR }}.
     {% else %}
-    Welcome! You are browsing from {{ request.META.HTTP_USER_AGENT }}, from {{ request.META.REMOTE_ADDR }}.
+    Welcome! You are browsing from {{ request.META.HTTP_USER_AGENT }}, from {{ request.META.REMOTE_ADDR }}.</h6>
     {% endif %}
-    
+    <hr />
+
+    <h6>Below are the pages that have been already created. It is possible to edit them, however you must be logged in.</h6>
     {% if pages %}
     <ul class="list-group">
         {% for page in pages %}

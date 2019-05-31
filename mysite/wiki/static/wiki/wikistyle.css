@@ -1,0 +1,95 @@
+/* Spinner Colours */
+
+#spinner1 {
+    color: rgb(40, 160, 190);
+}
+
+#spinner2 {
+    color: rgb(219, 57, 57);
+}
+
+#spinner3 {
+    color: rgb(90, 201, 35);
+}
+
+#spinner4 {
+    color: rgb(56, 160, 64);
+}
+
+#spinner5 {
+    color: rgb(132, 1, 1);
+}
+
+#spinner6 {
+    color: rgb(226, 109, 36);
+}
+
+#spinner7 {
+    color: rgb(36, 125, 226);
+}
+
+#spinner8 {
+    color: rgb(4, 38, 142);
+}
+
+#spinner9 {
+    color: rgb(36, 226, 137);
+}
+
+/* Buttons */
+
+#loginbase {
+    background-color: rgb(40, 160, 190);
+    color: white;
+}
+
+#logoutbase {
+    background-color: rgb(219, 57, 57);
+    color: white;
+}
+
+#loginedit {
+    background-color: rgb(90, 201, 35);
+    color: white;
+}
+
+#savebutton {
+    background-color: rgb(56, 160, 64);
+    color: white;
+}
+
+#cancelbutton {
+    background-color: rgb(132, 1, 1);
+    color: white;
+}
+
+#indexbutton {
+    background-color: rgb(226, 109, 36);
+    color: white;
+}
+
+#editbutton {
+    background-color: rgb(36, 125, 226);
+    color: white;
+}
+
+#uploadbutton {
+    background-color: rgb(4, 38, 142);
+    border: 1px solid rgb(127, 157, 168);
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer; 
+    width: 20%; 
+}
+
+#createpagebutton {
+    background-color: rgb(36, 226, 137);
+    color: white;
+}
+
+
+/* Text Spacing */
+
+.centre {
+    text-align: center;
+}

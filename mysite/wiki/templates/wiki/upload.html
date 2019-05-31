@@ -1,27 +1,36 @@
-{% extends 'wiki/base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'wiki/base.html' %} {% load static %} {% block content %}
 <div class="container">
-    {% block contentTitle %}<h2>File Upload</h2>{% endblock %}
-    <h6>On this part of the wiki, you can upload files, check the files that were uploaded and the most important -
-        that's if you intend to edit pages and include images - is the corresponding file directory for the image you
-        want to include in the edited page.</h6>
-        <form method='POST' enctype='multipart/form-data' action="{% url 'wiki:upload_page' %}">
-            {% csrf_token %}
-            {{form}}
-            <input type='submit' value="Upload">
-        </form>
-        <section>
-            {% if files %}
-            <ul>
+    {% block contentTitle %}
+    <h2>File Upload</h2>{% endblock %}
+    <h6>On this part of the wiki, you can upload files, check the files that were uploaded and the most important - that's if
+        you intend to edit pages and include images - is the corresponding file directory for the image you want to include
+        in the edited page.</h6>
+    <form method='POST' enctype='multipart/form-data' action="{% url 'wiki:upload_page' %}">
+        {% csrf_token %} {{form}}
+        <input type='submit' id="uploadbutton" value="Upload">
+    </form>
+    <section>
+        <hr /> {% if files %}
+        <table class="table table-hover" colspan="2" width="100%">
+            <thead>
+                <tr>
+                    <th scope="col" width="60%" class="text-center border">File</th>
+                    <th scope="col" width="40%" class="text-center border">Download</th>
+                </tr>
+            </thead>
                 {% for file in files %}
-                <li><a href="{{file.upload.url}}">{{file.upload.name}}</a></li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <p>No uploaded files</p>
-            {% endif %}
-        </section>
+                <tr>
+                    <td width="60%" class="border">
+                        <a href="{{file.upload.url}}">{{file.upload.name}}</a>
+                    </td>
+                    <td width="40%" class="text-center border">
+                        <a href="/download/{{file}}">Click to Download</a>
+                    </td>
+                </tr>
+                {% endfor %} {% else %}
+                <p>No uploaded files</p>
+                {% endif %}
+        </table>
+    </section>
 </div>
 {% endblock %}

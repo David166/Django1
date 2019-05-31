@@ -6,6 +6,7 @@ app_name = 'wiki'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('download/uploads/<str:path>/', views.download_file, name='download'),
     path('upload/', views.upload_file, name='upload_page' ),
     path('<str:pk>/edit', views.edit_page, name='edit_page'),
     path('<str:pk>/save', views.save_page, name='save_page'),
