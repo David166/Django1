@@ -1,0 +1,17 @@
+Watching for file changes with StatReloader
+Waiting for apps ready_event.
+Apps ready_event triggered. Sending autoreload_started signal.
+Watching dir D:\Level 3 - 2017 - 2019\Year 2\Visual Studio Code\Django\locale with glob **/*.mo.
+Watching dir D:\Level 3 - 2017 - 2019\Year 2\Visual Studio Code\Django\mysite\polls\locale with glob **/*.mo.
+Watching dir D:\Level 3 - 2017 - 2019\Year 2\Visual Studio Code\Django\mysite\wiki\locale with glob **/*.mo.
+Watching dir C:\Program Files (x86)\Python36-32\lib\site-packages\django\contrib\admin\locale with glob **/*.mo.
+Watching dir C:\Program Files (x86)\Python36-32\lib\site-packages\django\contrib\auth\locale with glob **/*.mo.
+Watching dir C:\Program Files (x86)\Python36-32\lib\site-packages\django\contrib\contenttypes\locale with glob **/*.mo.
+Watching dir C:\Program Files (x86)\Python36-32\lib\site-packages\django\contrib\sessions\locale with glob **/*.mo.
+Watching dir C:\Program Files (x86)\Python36-32\lib\site-packages\django\contrib\messages\locale with glob **/*.mo.
+Watching dir C:\Program Files (x86)\Python36-32\lib\site-packages\django\contrib\staticfiles\locale with glob **/*.mo.
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()

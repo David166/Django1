@@ -4,8 +4,8 @@
 <div class="container">
     <h2>{{page_name}}</h2>{% endblock %}
     <h5>There is no content for this page.</h5>
-    <a class="btn" id="createpagebutton" href="{% url 'wiki:edit_page' page_name %}">Click here to create a page named
+    <a class="btn" id="createpagebutton" href="{% url 'wiki:edit_page' page_name %}">Create a page named
         {{page_name}}</a>
-    <a class="btn" id="indexbutton" href="{%url 'wiki:index' %}">Click here to go back to Index</a>
+    <a class="btn" id="indexbutton" href="{%url 'wiki:index' %}">Index</a>
 </div>
 {% endblock %}

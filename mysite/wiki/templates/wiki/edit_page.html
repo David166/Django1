@@ -9,7 +9,7 @@
 
 {% block contentTitle %}<h3>You are now editing the wiki page known as:</h3> <h4><i>{{page_name}}</i></h4>{% endblock %}
 <br />
-<h6><strong>Markdown</strong> is compatible with this text editor and it is heavily recommended. You can also drag the text editor downwards if you need more space.</h6>
+<h6><strong>Markdown</strong> is compatible with this text editor and it is recommended. You can also drag the text editor downwards by grabbing the bottom right corner of the text editor, if more space is needed.</h6>
 <h6>Here is a <strong><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></strong> if you are new to Markdown.</h6>
 <form method="post" action="{% url 'wiki:save_page' page_name %}">
     {% csrf_token %}
