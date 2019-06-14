@@ -9,8 +9,8 @@
     {{page.content|markup|wikify|safe}}
     <hr />
     <div>
-        <a href="{% url 'wiki:index' %}"><button class="btn" id="indexbutton" >Index</button></a>
-        <a href="{% url 'wiki:edit_page' page.title %}"><button class="btn" id="editbutton">Edit</button></a>
+        <a class="btn btn-lg" id="indexbutton" href="{% url 'wiki:index' %}">Index</a>
+        <a class="btn btn-lg" id="editbutton" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
     </div>
     This page has been visited {{ page.counter }} times.    
 </div>
