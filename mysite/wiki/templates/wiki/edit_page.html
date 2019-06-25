@@ -1,21 +1,27 @@
-{% extends 'wiki/base.html' %}
-{% load staticfiles %}
-{% block pageheader %}Editing {{ page_name }}{% endblock %}
-{% block content %}
+{% extends 'wiki/base.html' %} <!-- The base.html is displayed first -->
+{% load staticfiles %} 
+{% block pageheader %}Editing {{ page_name }}{% endblock %} {% block content %}
 <div class="container">
-    
- <!-- <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
- <script>tinymce.init({ selector:'#id_content', plugins: 'autolink' });</script> -->
-
-{% block contentTitle %}<h3>You are now editing the wiki page known as:</h3> <h4><i>{{page_name}}</i></h4>{% endblock %}
-<br />
-<h6><strong>Markdown</strong> is compatible with this text editor and it is recommended. You can also drag the text editor downwards by grabbing the bottom right corner of the text editor, if more space is needed.</h6>
-<h6>Here is a <strong><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></strong> if you are new to Markdown.</h6>
-<form method="post" action="{% url 'wiki:save_page' page_name %}">
-    {% csrf_token %}
-    <textarea id="id_content" name="content" rows="10" cols="120">{{content}}</textarea>
-    <input class="btn" id="savebutton" name="Save" type="submit" value="Save">
-    <input class="btn" id="cancelbutton" name="Cancel" type="submit" value="Cancel">
-</form>
+    {% block contentTitle %}
+    <h3>You are now editing the wiki page known as:</h3>
+    <h4>
+        <i>{{page_name}}</i>
+    </h4>
+    {% endblock %}
+    <br />
+    <!-- Notifies the user that Markdown is compatible and provides a Markdown cheatsheet. -->
+    <h6>
+        <strong>Markdown</strong> is compatible with this text editor and it is recommended. You can also drag the text editor downwards
+        by grabbing the bottom right corner of the text editor, if more space is needed.</h6>
+    <h6>Here is a
+        <strong>
+            <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a>
+        </strong> if you are new to Markdown.</h6>
+    <form method="post" action="{% url 'wiki:save_page' page_name %}">
+        {% csrf_token %}
+        <textarea id="id_content" name="content" rows="10" cols="120">{{content}}</textarea> <!-- Where the user writes the content, the text area -->
+        <input class="btn" id="savebutton" name="Save" type="submit" value="Save"> <!-- Save button -->
+        <input class="btn" id="cancelbutton" name="Cancel" type="submit" value="Cancel"> <!-- Cancel button -->
+    </form>
 </div>
 {% endblock %}

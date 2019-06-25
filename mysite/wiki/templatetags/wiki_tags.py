@@ -6,9 +6,10 @@ wikiWordV2 = re.compile(r"\[\[([A-Za-z0-9_]+)\]\]")
 
 register=template.Library()
 
+# Allows Markdown
 @register.filter
 def markup(text):
-    return markdown.markdown(text)
+    return markdown.markdown(text) 
 
 @register.filter
 def wikify(text):

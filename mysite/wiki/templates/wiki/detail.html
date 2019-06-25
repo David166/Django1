@@ -1,17 +1,17 @@
-{% extends 'wiki/base.html' %}
-{% load wiki_tags %}
+{% extends 'wiki/base.html' %} <!-- The base.html is displayed first -->
+{% load wiki_tags %} <!-- Loads wiki_tags.py  -->
 {% block content %}
 <div class="container">
     {% block contentTitle %}
     <h2 class="text-primary">{{page.title}}</h2>
     {% endblock %}
     <hr />
-    {{page.content|markup|wikify|safe}}
+    {{page.content|markup|wikify|safe}} <!-- The markup and wikify are defined in wiki_tags.py. The safe marks a string as not requiring further HTML escaping prior to output. --> 
     <hr />
     <div>
-        <a class="btn btn-lg" id="indexbutton" href="{% url 'wiki:index' %}">Index</a>
-        <a class="btn btn-lg" id="editbutton" href="{% url 'wiki:edit_page' page.title %}">Edit</a>
+        <a class="btn btn-lg" id="indexbutton" href="{% url 'wiki:index' %}">Index</a> <!-- Index / Homepage button -->
+        <a class="btn btn-lg" id="editbutton" href="{% url 'wiki:edit_page' page.title %}">Edit</a> <!-- Edit button -->
     </div>
-    This page has been visited {{ page.counter }} times.    
+    This page has been visited {{ page.counter }} times. <!-- Shows how many times the page has been visited. -->   
 </div>
 {% endblock content %}

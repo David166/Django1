@@ -1,7 +1,8 @@
-#!/usr/bin/env python
+# This is the file used to run the server locally.
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+
 
 
 def main():

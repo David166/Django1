@@ -1,11 +1,11 @@
-{% extends "wiki/base.html" %}
+{% extends "wiki/base.html" %} <!-- The base.html is displayed first -->
 {% block content %}
 {% block contentTitle %}
 <div class="container">
-    <h2>{{page_name}}</h2>{% endblock %}
+    <h2>{{page_name}}</h2>{% endblock %} <!-- Name of the Page -->
     <h5>There is no content for this page.</h5>
     <a class="btn" id="createpagebutton" href="{% url 'wiki:edit_page' page_name %}">Create a page named
-        {{page_name}}</a>
-    <a class="btn" id="indexbutton" href="{%url 'wiki:index' %}">Index</a>
+        {{page_name}}</a> <!-- Button that redirects the user to editing the new page -->
+    <a class="btn" id="indexbutton" href="{%url 'wiki:index' %}">Index</a> <!-- Index / Homepage button --> 
 </div>
 {% endblock %}

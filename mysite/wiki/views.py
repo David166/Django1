@@ -9,6 +9,9 @@ import os
 from django.conf import settings
 from django.http import HttpResponse, Http404
 
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 class IndexView(generic.ListView):
     template_name = 'wiki/index.html'
@@ -22,7 +25,7 @@ class DetailView(generic.DetailView):
     template_name = 'wiki/detail.html'
 
 
-def view_page(request, pk):
+def view_page(request, pk): # Gives the ability to view pages.
     try:
         page = Page.objects.get(pk=pk)
         page.counter = F('counter') + 1
@@ -32,7 +35,7 @@ def view_page(request, pk):
     except Page.DoesNotExist:
         return render(request, 'wiki/create_page.html', {'page_name': pk})
 
-@login_required(login_url='wiki:login')
+@login_required(login_url='wiki:login') # If logged out, redirects the user to the login screen.
 def edit_page(request, pk):
     try:
         page = Page.objects.get(pk=pk)
@@ -41,7 +44,7 @@ def edit_page(request, pk):
         content=''
     return render(request, 'wiki/edit_page.html',{ 'page_name':pk, 'content':content},)
 
-def save_page(request, pk):
+def save_page(request, pk): # Gives the abiliy to save pages.
     content = request.POST["content"]
     try:
         page = Page.objects.get(pk=pk)
@@ -52,7 +55,7 @@ def save_page(request, pk):
         page.save()
     return redirect(page)
 
-@login_required(login_url='wiki:login')
+@login_required(login_url='wiki:login') # If logged out when trying to access File Upload, redirects the user to the login screen.
 def upload_file(request):
     context = {}
     if request.method == 'POST':
@@ -65,7 +68,7 @@ def upload_file(request):
     context['files'] = UserFileUpload.objects.all().order_by('upload')
     return render(request, 'wiki/upload.html', context)
 
-@login_required(login_url='wiki:login')
+@login_required(login_url='wiki:login') # If logged out when trying to download a file, redirects the user to the login screen.
 def download_file(request, path):
     file_path = os.path.join(settings.MEDIA_ROOT + '/uploads', path)
     if os.path.exists(file_path):
@@ -74,9 +77,6 @@ def download_file(request, path):
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
             return response
     raise Http404
-
-# Get an instance of a logger
-logger = logging.getLogger(__name__)
 
 def my_view(request, arg1, arg):
     if bad_mojo:

@@ -1,21 +1,24 @@
 {% extends "wiki/base.html" %} {% load static %} {% block content %} {% block title %} {% endblock %}
 <div class="container">
-    <!-- <img src="{% static 'wiki/images/googledoodle.png' %}"> -->
-    <h2>Welcome to Vikipidia!</h2>
-    <h5>This wiki can only be run locally and has not been tested as a public website because it's not intended to be one.</h5>
-    {% if user.is_authenticated%}
-    <h6>Welcome {{ request.user.username }}! You are browsing from {{ request.META.HTTP_USER_AGENT }}, from
-        {{ request.META.REMOTE_ADDR }}. {% else %} Welcome Guest! To get information about the application you are
-        currently browsing from and your IP, please login.</h6>
+    <!-- Displaying appropriate welcoming messages for users and guests. -->
+    {% if user.is_authenticated %} 
+    <h2>Welcome to Vikipidia, {{ request.user.username }}!</h2>    
+    <h6>You are browsing from {{ request.META.HTTP_USER_AGENT }}, and your IP is {{ request.META.REMOTE_ADDR }}.</h6> 
+    {% else %} 
+    <h2>Welcome to Vikipidia, Guest!</h2>
+    <h6>You are browsing from {{ request.META.HTTP_USER_AGENT }}, and your IP is {{ request.META.REMOTE_ADDR }}.</h6> 
+    {% endif %}
+    <!-- Screen resolution function -->
     <a onclick="myFunction()" id="demo" style="color:rgb(20, 100, 53)">Click here to find out your screen
         resolution!</a>
-    {% endif %}
     <hr />
+    <!-- How to create a new page -->
     <h5>To create a new page, simply click after the 'wiki/' bit on the search bar at the top, and type in the name of
         your desired page.</h5>
     <h6>Below are the pages that have been already created. It is possible to create new pages and edit existing ones,
         however you must be logged in.</h6>
-    {% if pages %}
+    <!-- If there are pages, display them as a list -->
+        {% if pages %}
     <ul class="list-group">
         {% for page in pages %}
         <li class="list-group-item list-group-item-action">
@@ -23,11 +26,13 @@
         </li>
         {% endfor %}
     </ul>
+    <!-- If there aren't any, display the paragraph -->
     {% else %}
     <p>No pages are available at this time.</p>
     {% endif %}
 </div>
 <script>
+    /* Screen resolution function */
     function myFunction() {
         var x = "Your screen resolution is: " + screen.width + "x" + screen.height + " (" + screen.width + " pixels wide and " + screen.height + " pixels tall)";
         document.getElementById("demo").innerHTML = x;

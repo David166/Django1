@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
+# The URLs that can be accessed.
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),

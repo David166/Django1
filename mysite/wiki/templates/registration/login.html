@@ -1,4 +1,4 @@
-{% extends "wiki/base.html" %}
+{% extends "wiki/base.html" %} <!-- The base.html is displayed first -->
 
 {% block content %}
 <title>
@@ -6,15 +6,19 @@
 </title>
 
 {% if next %}
+<!-- If the user is logged in -->
 {% if user.is_authenticated %}
 <h4 class="centre">Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</h4>
+<!-- If the user isn't logged in -->
 {% else %}
 <h4 class="centre">You must login to see this page.</h4>
 {% endif %} {% endif %}
+<!-- If there was an error in the username / password, display a message -->
 {% if form.errors %}
 <h5 class="centre">Your username and password didn't match. Please try again.</h5>
 {% endif %}
+<!-- Main Content -->
 <div class="container">
     <h6 class="centre">This is the Login page. If you wish to edit pages or upload files, you must login. To go back,
         click the Homepage button at the top.</h6>
@@ -22,16 +26,16 @@
         {% csrf_token %}
         <div class="form-group centre">
             <tr>
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
+                <td>{{ form.username.label_tag }}</td> <!-- Username Label -->
+                <td>{{ form.username }}</td> <!-- Box where user writes username -->
             </tr>
             <tr>
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
+                <td>{{ form.password.label_tag }}</td> <!-- Password Label -->
+                <td>{{ form.password }}</td> <!-- Box where user writes password -->
             </tr>
         </div>
         <br />
-        <input class="btn btn-lg" id="loginedit" type="submit" value="Login">
+        <input class="btn btn-lg" id="loginedit" type="submit" value="Login"> <!-- Login Button -->
         <input type="hidden" name="next" value="{{ next }}">
     </form>
     <hr />

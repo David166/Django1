@@ -53,6 +53,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -122,7 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    # Looks inside a statci folder in the root of the app
+    # Looks inside a static folder in the root of the app
     os.path.join(BASE_DIR, "static"),
 ]
 
@@ -132,6 +133,7 @@ LOGOUT_REDIRECT_URL = '/wiki/accounts/login'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Logging, which will appear in debug.log
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -145,7 +147,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'WARNING', # Makes it log only WARNINGS, those being 400 and 500 'errors'.
             'propagate': True,
         },
     },
