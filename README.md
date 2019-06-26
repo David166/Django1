@@ -1,4 +1,4 @@
-# Django Tutorials
+# Django
 
 Django is a Python based web framework used to create websites or web servers.
 It is modular so you can pick and choose what you want for your project.
@@ -16,5 +16,3 @@ User types in the URL, gets sent to the server, after some point it activates a 
 The final element of Django is Views. Pure Python, so it's the logic. It always accepts requests and always sends out a response. The response or exception is usually to render the template with some data - but it could be something else.
 
 In URL Patterns, use path(''....) at the end.
-
-# Django Terminology

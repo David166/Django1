@@ -11,6 +11,7 @@ register=template.Library()
 def markup(text):
     return markdown.markdown(text) 
 
+# Allows hyperlinks between wiki pages
 @register.filter
 def wikify(text):
     return wikiWordV2.sub(r'''

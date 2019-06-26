@@ -9,7 +9,7 @@ import os
 from django.conf import settings
 from django.http import HttpResponse, Http404
 
-# Get an instance of a logger
+# Get an instance of a logger which helps us keep a log of pages that are requested.
 logger = logging.getLogger(__name__)
 
 

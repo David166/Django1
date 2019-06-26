@@ -21,6 +21,23 @@ describe('Logout Test', function () {
   })
 })
 
+// Accesses all 3 pages
+describe('Accesses all 3 pages without logging in', function () {
+  it('Without logging in, it accesses all 3 pages', function () {
+    cy.visit('http://127.0.0.1:8000/wiki/') // Visits the Wiki
+    cy.contains('College of West Anglia').click() // Clicks the College of West Anglia page
+    cy.wait(3000) // Waits 3 seconds
+    cy.contains('Index').click() // Clicks the Index button
+    cy.contains('Wisbech').click() // Clicks the Wisbech page
+    cy.wait(3000)
+    cy.contains('Index').click() 
+    cy.contains('MarkdownTest').click() // Clicks MarkdownTest page
+    cy.wait(3000)
+    cy.contains('Index').click()    
+  })
+})
+
+
 // Logs in, clicks File Upload, logs in, clicks the Monitor image.
 describe('Clicks an image in the File Upload section', function () {
   it('Clicks File Upload, logs in and views the Monitor image', function () {
